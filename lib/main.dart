@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nova/core/di/service_locator.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initCoreDepenencies();
   runApp(const FlutterNovaApp());
 }
 
