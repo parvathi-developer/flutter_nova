@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "236896031669",
+    "project_id": "flutternova-af031",
+    "storage_bucket": "flutternova-af031.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236896031669:android:1f3d6f72ca89635ad7fffc",
+        "android_client_info": {
+          "package_name": "com.parvathi.flutternova"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw7zMkdOORDr3l4p6xRfB_ZKkMWtKRtwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
