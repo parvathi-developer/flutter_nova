@@ -4,9 +4,9 @@ abstract class Failures {
 }
 
 abstract class ServerFailure extends Failures {
-  const ServerFailure(String message) : super(message);
+  const ServerFailure(super.message);
 }
 
 abstract class CacheFailure extends Failures {
-  const CacheFailure(String message) : super(message);
+  const CacheFailure(super.message);
 }

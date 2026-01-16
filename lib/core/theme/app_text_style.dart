@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_nova/core/theme/app_colors.dart';
-import 'package:flutter_nova/core/utils/screen_utils.dart';
 
 class AppTextStyle {
   static TextTheme darkTextTheme = const TextTheme(
