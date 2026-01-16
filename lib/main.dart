@@ -46,7 +46,8 @@ class FlutterNovaApp extends StatelessWidget {
                   return const NovaHome();
                 }
 
-                if (authstate is AuthAuthenticated || authstate is AuthError) {
+                if (authstate is AuthUnAuthenticated ||
+                    authstate is AuthError) {
                   return LoginPage();
                 }
 
