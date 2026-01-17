@@ -7,6 +7,7 @@ import 'package:flutter_nova/features/auth/domain/usecases/forgot_password_useca
 import 'package:flutter_nova/features/auth/domain/usecases/get_currentuser_usecase.dart';
 import 'package:flutter_nova/features/auth/domain/usecases/login_usecases.dart';
 import 'package:flutter_nova/features/auth/domain/usecases/logout_usecase.dart';
+import 'package:flutter_nova/features/auth/domain/usecases/register_usecase.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_event.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_states.dart';
 
@@ -16,6 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
   final GetCurrentuserUsecase getCurrentuserUsecase;
   final ForgotPasswordUsecase forgotPasswordUsecase;
   final AnonymousLoginUsecase anonymousLoginUsecase;
+  final RegisterUseCase registerUseCase;
 
   AuthBloc({
     required this.loginUsecase,
@@ -23,12 +25,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     required this.getCurrentuserUsecase,
     required this.forgotPasswordUsecase,
     required this.anonymousLoginUsecase,
+    required this.registerUseCase,
   }) : super(AuthInitial()) {
     on<AuthLoginRequested>(_onLoginRequested);
     on<AuthLogoutRequested>(_onLogoutRequested);
     on<AuthCheckRequested>(_onAuthCheckedRequested);
     on<AuthForgotPasswordRequested>(_onAuthForgotPasswordRequest);
     on<AuthAnonymousSignInRequested>(_onAuthAnonymousSignInRequested);
+    on<AuthRegisterRequested>(_onAuthRegisterRequested);
+    add(AuthCheckRequested());
   }
 
   Future<void> _onLoginRequested(
@@ -83,5 +88,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
     emit(AuthLoading());
     //final user = await anonymousLoginUsecase();
     //emit(AuthAuthenticated(user.email!));
+  }
+
+  _onAuthRegisterRequested(event, emit) async {
+    emit(AuthLoading());
+    try {
+      final user = await registerUseCase(
+        email: event.email,
+        password: event.password,
+      );
+      emit(AuthAuthenticated(user));
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
   }
 }

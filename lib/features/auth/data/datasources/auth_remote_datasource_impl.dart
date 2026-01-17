@@ -47,4 +47,17 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasources {
     // TODO: implement signInWithGoogle
     throw UnimplementedError();
   }
+
+  @override
+  Future<UserModel> register({
+    required String email,
+    required String password,
+  }) async {
+    final result = await firebaseAuth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    final user = result.user!;
+    return UserModel(id: user.uid, email: user.email ?? '');
+  }
 }

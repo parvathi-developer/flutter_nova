@@ -19,3 +19,10 @@ class AuthForgotPasswordRequested extends AuthEvent {
 class AuthGoogleSignInRequested extends AuthEvent {}
 
 class AuthAnonymousSignInRequested extends AuthEvent {}
+
+class AuthRegisterRequested extends AuthEvent {
+  final String email;
+  final String password;
+
+  AuthRegisterRequested({required this.email, required this.password});
+}

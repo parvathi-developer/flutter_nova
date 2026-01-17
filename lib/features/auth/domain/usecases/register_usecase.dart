@@ -1,0 +1,12 @@
+import 'package:flutter_nova/features/auth/domain/entities/user_entity.dart';
+import 'package:flutter_nova/features/auth/domain/repositories/auth_repository.dart';
+
+class RegisterUseCase {
+  final AuthRepository repository;
+
+  RegisterUseCase(this.repository);
+
+  Future<UserEntity> call({required String email, required String password}) {
+    return repository.register(email: email, password: password);
+  }
+}

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_nova/core/bloc/theme_bloc.dart';
 import 'package:flutter_nova/core/bloc/theme_state.dart';
 import 'package:flutter_nova/core/di/service_locator.dart';
+import 'package:flutter_nova/core/routes/app_router.dart';
 import 'package:flutter_nova/core/theme/app_theme.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_bloc.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_states.dart';
@@ -30,30 +31,17 @@ class FlutterNovaApp extends StatelessWidget {
         BlocProvider<AuthBloc>(create: (_) => s1<AuthBloc>()),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
-        builder: (context, state) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: state.themeMode,
-
-            home: BlocBuilder<AuthBloc, AuthStates>(
-              builder: (context, authstate) {
-                if (authstate is AuthInitial || authstate is AuthLoading) {
-                  return const SplashPage();
-                }
-                if (authstate is AuthAuthenticated) {
-                  return const NovaHome();
-                }
-
-                if (authstate is AuthUnAuthenticated ||
-                    authstate is AuthError) {
-                  return LoginPage();
-                }
-
-                return const SplashPage();
-              },
-            ),
+        builder: (context, states) {
+          return BlocBuilder<AuthBloc, AuthStates>(
+            builder: (context, state) {
+              return MaterialApp.router(
+                routerConfig: router,
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.lightTheme,
+                darkTheme: AppTheme.darkTheme,
+                themeMode: states.themeMode,
+              );
+            },
           );
         },
       ),

@@ -10,6 +10,7 @@ import 'package:flutter_nova/features/auth/domain/usecases/get_currentuser_useca
 import 'package:flutter_nova/features/auth/domain/usecases/google_signin_usecase.dart';
 import 'package:flutter_nova/features/auth/domain/usecases/login_usecases.dart';
 import 'package:flutter_nova/features/auth/domain/usecases/logout_usecase.dart';
+import 'package:flutter_nova/features/auth/domain/usecases/register_usecase.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -38,6 +39,7 @@ Future<void> initCoreDepenencies() async {
   s1.registerLazySingleton(() => ForgotPasswordUsecase(s1()));
   s1.registerLazySingleton(() => AnonymousLoginUsecase(s1()));
   s1.registerLazySingleton(() => GoogleSignInUsecase(s1()));
+  s1.registerLazySingleton(() => RegisterUseCase(s1()));
 
   //Bloc
   s1.registerLazySingleton(
@@ -47,6 +49,7 @@ Future<void> initCoreDepenencies() async {
       getCurrentuserUsecase: s1(),
       forgotPasswordUsecase: s1(),
       anonymousLoginUsecase: s1(),
+      registerUseCase: s1(),
     ),
   );
 }

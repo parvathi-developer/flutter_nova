@@ -7,4 +7,5 @@ abstract class AuthRemoteDatasources {
   Future<void> sendPasswordReset(String email);
   Future<UserModel> signInWithGoogle();
   Future<UserModel> signInAnonymously();
+  Future<UserModel> register({required String email, required String password});
 }

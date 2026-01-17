@@ -34,4 +34,12 @@ class AuthRepositoryImpl extends AuthRepository {
   Future<UserEntity> signInWithGoogle() {
     return remoteDatasource.signInWithGoogle();
   }
+
+  @override
+  Future<UserEntity> register({
+    required String email,
+    required String password,
+  }) async {
+    return remoteDatasource.register(email: email, password: password);
+  }
 }
