@@ -12,52 +12,57 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthStates>(
-      builder: (context, states) {
-        return Scaffold(
-          appBar: AppBar(title: const Text('Login')),
-          body: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                TextField(
-                  controller: emailController,
-                  decoration: const InputDecoration(labelText: 'Email'),
-                ),
-                const SizedBox(height: 12),
-                TextField(
-                  controller: passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(labelText: 'Password'),
-                ),
-                const SizedBox(height: 16),
-
-                // ✅ ERROR TEXT (SEPARATE)
-                if (states is AuthError)
-                  Text(
-                    states.errorMessage,
-                    style: const TextStyle(color: Colors.red, fontSize: 14),
-                  ),
-
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<AuthBloc>().add(
-                      AuthLoginRequested(
-                        email: emailController.text,
-                        password: passwordController.text,
-                      ),
-                    );
-                  },
-                  child: states is AuthLoading
-                      ? const CircularProgressIndicator()
-                      : const Text('Login'),
-                ),
-              ],
+    return BlocListener<AuthBloc, AuthStates>(
+      listener: (context, state) {
+        if (state is AuthError) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errorMessage),
+              backgroundColor: Colors.red,
             ),
-          ),
-        );
+          );
+        }
       },
+      child: BlocBuilder<AuthBloc, AuthStates>(
+        builder: (context, states) {
+          return Scaffold(
+            appBar: AppBar(title: const Text('Login')),
+            body: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  TextField(
+                    controller: emailController,
+                    decoration: const InputDecoration(labelText: 'Email'),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(labelText: 'Password'),
+                  ),
+                  const SizedBox(height: 16),
+
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<AuthBloc>().add(
+                        AuthLoginRequested(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        ),
+                      );
+                    },
+                    child: states is AuthLoading
+                        ? const CircularProgressIndicator()
+                        : const Text('Login'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
