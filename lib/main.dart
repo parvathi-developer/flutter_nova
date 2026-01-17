@@ -8,14 +8,15 @@ import 'package:flutter_nova/core/routes/app_router.dart';
 import 'package:flutter_nova/core/theme/app_theme.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_bloc.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_states.dart';
-import 'package:flutter_nova/features/auth/presentations/pages/login_page.dart';
-import 'package:flutter_nova/features/auth/presentations/pages/splash_page.dart';
-import 'package:flutter_nova/features/home/presentation/pages/nova_home.dart';
+import 'package:flutter_nova/features/questions/presentations/bloc/question_bloc.dart';
+import 'package:flutter_nova/features/topics/presentations/bloc/topics_bloc.dart';
 import 'package:flutter_nova/firebase_options.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Hive.initFlutter();
   await initCoreDepenencies();
   runApp(const FlutterNovaApp());
 }
@@ -29,6 +30,8 @@ class FlutterNovaApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeBloc>(create: (_) => s1<ThemeBloc>()),
         BlocProvider<AuthBloc>(create: (_) => s1<AuthBloc>()),
+        BlocProvider<TopicsBloc>(create: (_) => s1<TopicsBloc>()),
+        BlocProvider<QuestionsBloc>(create: (_) => s1<QuestionsBloc>()),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, states) {

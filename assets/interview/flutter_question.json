@@ -1,0 +1,570 @@
+{
+  "topics": [
+    {
+      "id": "flutter_basics",
+      "title": "Flutter Basics",
+      "description": "Core Flutter concepts and fundamentals",
+      "questions": [
+        {
+          "id": "fb1",
+          "question": "What is Flutter?",
+          "answer": "Flutter is an open-source UI framework by Google used to build natively compiled applications for mobile, web, and desktop from a single codebase.",
+          "tags": ["flutter", "basics"]
+        },
+        {
+          "id": "fb2",
+          "question": "What programming language does Flutter use?",
+          "answer": "Flutter uses Dart, a language optimized for UI development with JIT and AOT compilation.",
+          "tags": ["dart"]
+        },
+        {
+          "id": "fb3",
+          "question": "What is hot reload in Flutter?",
+          "answer": "Hot reload allows developers to instantly see code changes without restarting the app or losing state.",
+          "tags": ["hot-reload"]
+        },
+        {
+          "id": "fb4",
+          "question": "What is the Flutter engine?",
+          "answer": "The Flutter engine is written in C++ and provides rendering, text layout, and platform interaction.",
+          "tags": ["engine"]
+        },
+        {
+          "id": "fb5",
+          "question": "Is Flutter native?",
+          "answer": "Flutter is not native but compiles to native ARM code and uses platform channels to access native APIs.",
+          "tags": ["native"]
+        },
+        {
+          "id": "fb6",
+          "question": "What platforms does Flutter support?",
+          "answer": "Flutter supports Android, iOS, Web, Windows, macOS, and Linux.",
+          "tags": ["platforms"]
+        },
+        {
+          "id": "fb7",
+          "question": "What is pubspec.yaml?",
+          "answer": "pubspec.yaml manages dependencies, assets, fonts, and project metadata.",
+          "tags": ["pubspec"]
+        },
+        {
+          "id": "fb8",
+          "question": "What is MaterialApp?",
+          "answer": "MaterialApp is a widget that sets up material design, routing, themes, and localization.",
+          "tags": ["material"]
+        },
+        {
+          "id": "fb9",
+          "question": "What is Cupertino in Flutter?",
+          "answer": "Cupertino widgets provide iOS-style UI components.",
+          "tags": ["cupertino"]
+        },
+        {
+          "id": "fb10",
+          "question": "What is the widget tree?",
+          "answer": "The widget tree represents the hierarchical structure of widgets in a Flutter app.",
+          "tags": ["widget-tree"]
+        }
+      ]
+    },
+
+    {
+      "id": "widgets_ui",
+      "title": "Widgets & UI",
+      "description": "Widgets, layouts, and UI building in Flutter",
+      "questions": [
+        {
+          "id": "wu1",
+          "question": "What is a widget?",
+          "answer": "A widget is the basic building block of the Flutter UI.",
+          "tags": ["widgets"]
+        },
+        {
+          "id": "wu2",
+          "question": "Difference between StatelessWidget and StatefulWidget?",
+          "answer": "StatelessWidget is immutable, while StatefulWidget can rebuild when its state changes.",
+          "tags": ["state"]
+        },
+        {
+          "id": "wu3",
+          "question": "What is BuildContext?",
+          "answer": "BuildContext provides the location of a widget in the widget tree.",
+          "tags": ["context"]
+        },
+        {
+          "id": "wu4",
+          "question": "What does setState do?",
+          "answer": "setState notifies Flutter that the widget state has changed and needs rebuilding.",
+          "tags": ["setstate"]
+        },
+        {
+          "id": "wu5",
+          "question": "What are keys in Flutter?",
+          "answer": "Keys help Flutter preserve widget state when widgets move in the tree.",
+          "tags": ["keys"]
+        },
+        {
+          "id": "wu6",
+          "question": "What is MediaQuery?",
+          "answer": "MediaQuery provides screen size, orientation, and device pixel ratio.",
+          "tags": ["responsive"]
+        },
+        {
+          "id": "wu7",
+          "question": "What is LayoutBuilder?",
+          "answer": "LayoutBuilder builds widgets based on parent constraints.",
+          "tags": ["layout"]
+        },
+        {
+          "id": "wu8",
+          "question": "What is SafeArea?",
+          "answer": "SafeArea prevents UI from overlapping system UI like notches.",
+          "tags": ["safearea"]
+        },
+        {
+          "id": "wu9",
+          "question": "What is Expanded widget?",
+          "answer": "Expanded makes a child of Row or Column fill available space.",
+          "tags": ["expanded"]
+        },
+        {
+          "id": "wu10",
+          "question": "What is Flexible widget?",
+          "answer": "Flexible controls how a child flexes inside a Row or Column.",
+          "tags": ["flexible"]
+        }
+      ]
+    },
+
+    {
+      "id": "state_management",
+      "title": "State Management",
+      "description": "Managing state in Flutter applications",
+      "questions": [
+        {
+          "id": "sm1",
+          "question": "What is state in Flutter?",
+          "answer": "State represents data that can change over time and affect UI.",
+          "tags": ["state"]
+        },
+        {
+          "id": "sm2",
+          "question": "What is setState used for?",
+          "answer": "It is used to update local widget state.",
+          "tags": ["setstate"]
+        },
+        {
+          "id": "sm3",
+          "question": "What is BLoC?",
+          "answer": "BLoC separates business logic from UI using streams of events and states.",
+          "tags": ["bloc"]
+        },
+        {
+          "id": "sm4",
+          "question": "Difference between Provider and BLoC?",
+          "answer": "Provider is simpler, BLoC enforces strict separation and scalability.",
+          "tags": ["provider", "bloc"]
+        },
+        {
+          "id": "sm5",
+          "question": "What is Cubit?",
+          "answer": "Cubit is a simplified version of BLoC with fewer abstractions.",
+          "tags": ["cubit"]
+        },
+        {
+          "id": "sm6",
+          "question": "What is Riverpod?",
+          "answer": "Riverpod is a reactive caching and dependency injection framework.",
+          "tags": ["riverpod"]
+        },
+        {
+          "id": "sm7",
+          "question": "Why is state management important?",
+          "answer": "It keeps UI predictable, scalable, and testable.",
+          "tags": ["architecture"]
+        },
+        {
+          "id": "sm8",
+          "question": "What is immutable state?",
+          "answer": "Immutable state cannot be modified after creation.",
+          "tags": ["immutable"]
+        },
+        {
+          "id": "sm9",
+          "question": "What is global state?",
+          "answer": "State shared across multiple widgets or screens.",
+          "tags": ["global"]
+        },
+        {
+          "id": "sm10",
+          "question": "What is local state?",
+          "answer": "State that is confined to a single widget.",
+          "tags": ["local"]
+        }
+      ]
+    },
+
+    {
+      "id": "navigation",
+      "title": "Navigation & Routing",
+      "description": "Navigation patterns and routing",
+      "questions": [
+        { "id": "nav1", "question": "What is Navigator?", "answer": "Navigator manages a stack of routes.", "tags": ["navigation"] },
+        { "id": "nav2", "question": "What is a route?", "answer": "A route represents a screen or page.", "tags": ["routes"] },
+        { "id": "nav3", "question": "Difference between push and pushReplacement?", "answer": "push adds a route, pushReplacement replaces the current route.", "tags": ["navigator"] },
+        { "id": "nav4", "question": "What is go_router?", "answer": "go_router is a declarative routing package for Flutter.", "tags": ["go_router"] },
+        { "id": "nav5", "question": "What is named routing?", "answer": "Navigation using route names instead of widgets.", "tags": ["named-routes"] },
+        { "id": "nav6", "question": "What is deep linking?", "answer": "Deep linking opens a specific screen via a URL.", "tags": ["deeplink"] },
+        { "id": "nav7", "question": "What is route guard?", "answer": "Restricts navigation based on conditions like auth.", "tags": ["guards"] },
+        { "id": "nav8", "question": "What is popUntil?", "answer": "Pops routes until a condition is met.", "tags": ["pop"] },
+        { "id": "nav9", "question": "What is WillPopScope?", "answer": "Intercepts back navigation.", "tags": ["back"] },
+        { "id": "nav10", "question": "What is nested navigation?", "answer": "Navigation inside a sub-tree.", "tags": ["nested"] }
+      ]
+    },
+
+    {
+  "id": "async_programming",
+  "title": "Async Programming",
+  "description": "Asynchronous programming and concurrency in Flutter",
+  "questions": [
+    {
+      "id": "ap1",
+      "question": "What is asynchronous programming?",
+      "answer": "Asynchronous programming allows tasks to run without blocking the main thread.",
+      "tags": ["async"]
+    },
+    {
+      "id": "ap2",
+      "question": "What is Future in Dart?",
+      "answer": "A Future represents a value that will be available at a later time.",
+      "tags": ["future"]
+    },
+    {
+      "id": "ap3",
+      "question": "What is async and await?",
+      "answer": "async and await simplify working with Futures by writing asynchronous code in a synchronous style.",
+      "tags": ["async-await"]
+    },
+    {
+      "id": "ap4",
+      "question": "What is Stream?",
+      "answer": "A Stream provides a sequence of asynchronous events over time.",
+      "tags": ["stream"]
+    },
+    {
+      "id": "ap5",
+      "question": "Difference between Future and Stream?",
+      "answer": "Future emits a single value, Stream emits multiple values.",
+      "tags": ["future", "stream"]
+    },
+    {
+      "id": "ap6",
+      "question": "What is Isolate?",
+      "answer": "An Isolate runs code in a separate memory space for parallel execution.",
+      "tags": ["isolate"]
+    },
+    {
+      "id": "ap7",
+      "question": "What is compute() in Flutter?",
+      "answer": "compute() runs heavy tasks in a background isolate.",
+      "tags": ["compute"]
+    },
+    {
+      "id": "ap8",
+      "question": "What is event loop?",
+      "answer": "The event loop schedules and executes asynchronous tasks.",
+      "tags": ["event-loop"]
+    },
+    {
+      "id": "ap9",
+      "question": "What is microtask queue?",
+      "answer": "Microtasks are executed before the event queue.",
+      "tags": ["microtask"]
+    },
+    {
+      "id": "ap10",
+      "question": "How do you handle errors in async code?",
+      "answer": "Using try-catch blocks or Future.catchError.",
+      "tags": ["error-handling"]
+    }
+  ]
+},
+{
+  "id": "architecture",
+  "title": "Architecture & Clean Code",
+  "description": "App architecture, design patterns, and clean code principles",
+  "questions": [
+    {
+      "id": "ar1",
+      "question": "What is Clean Architecture?",
+      "answer": "Clean Architecture separates concerns into layers for scalability and testability.",
+      "tags": ["clean-architecture"]
+    },
+    {
+      "id": "ar2",
+      "question": "What are layers in Clean Architecture?",
+      "answer": "Presentation, Domain, and Data layers.",
+      "tags": ["layers"]
+    },
+    {
+      "id": "ar3",
+      "question": "What is separation of concerns?",
+      "answer": "Each part of the app handles a specific responsibility.",
+      "tags": ["soc"]
+    },
+    {
+      "id": "ar4",
+      "question": "What is SOLID principle?",
+      "answer": "A set of design principles for maintainable and scalable code.",
+      "tags": ["solid"]
+    },
+    {
+      "id": "ar5",
+      "question": "What is dependency injection?",
+      "answer": "Providing dependencies externally rather than creating them internally.",
+      "tags": ["di"]
+    },
+    {
+      "id": "ar6",
+      "question": "What is repository pattern?",
+      "answer": "Repository abstracts data sources from business logic.",
+      "tags": ["repository"]
+    },
+    {
+      "id": "ar7",
+      "question": "What is MVVM?",
+      "answer": "Model-View-ViewModel separates UI and business logic.",
+      "tags": ["mvvm"]
+    },
+    {
+      "id": "ar8",
+      "question": "Why avoid business logic in UI?",
+      "answer": "It improves testability and maintainability.",
+      "tags": ["best-practices"]
+    },
+    {
+      "id": "ar9",
+      "question": "What is feature-based architecture?",
+      "answer": "Organizing code by feature rather than by layer.",
+      "tags": ["feature-based"]
+    },
+    {
+      "id": "ar10",
+      "question": "What is code smell?",
+      "answer": "Symptoms in code that indicate deeper problems.",
+      "tags": ["code-smell"]
+    }
+  ]
+},
+
+{
+  "id": "performance",
+  "title": "Performance Optimization",
+  "description": "Improving Flutter app performance",
+  "questions": [
+    {
+      "id": "pf1",
+      "question": "What causes poor performance in Flutter apps?",
+      "answer": "Excessive rebuilds, heavy computations on UI thread, and inefficient layouts.",
+      "tags": ["performance"]
+    },
+    {
+      "id": "pf2",
+      "question": "What is const constructor?",
+      "answer": "Const constructors prevent unnecessary widget rebuilds.",
+      "tags": ["const"]
+    },
+    {
+      "id": "pf3",
+      "question": "What is widget rebuild?",
+      "answer": "Recreating widgets when state changes.",
+      "tags": ["rebuild"]
+    },
+    {
+      "id": "pf4",
+      "question": "What is RepaintBoundary?",
+      "answer": "It isolates repaint areas to improve rendering performance.",
+      "tags": ["repaint"]
+    },
+    {
+      "id": "pf5",
+      "question": "What is lazy loading?",
+      "answer": "Loading data or widgets only when needed.",
+      "tags": ["lazy"]
+    },
+    {
+      "id": "pf6",
+      "question": "What is ListView.builder?",
+      "answer": "It builds list items lazily for better performance.",
+      "tags": ["listview"]
+    },
+    {
+      "id": "pf7",
+      "question": "What is Flutter DevTools?",
+      "answer": "A suite of performance and debugging tools.",
+      "tags": ["devtools"]
+    },
+    {
+      "id": "pf8",
+      "question": "What is frame rendering?",
+      "answer": "Drawing UI frames at 60 or 120 FPS.",
+      "tags": ["fps"]
+    },
+    {
+      "id": "pf9",
+      "question": "What is jank?",
+      "answer": "Dropped frames causing stutter in UI.",
+      "tags": ["jank"]
+    },
+    {
+      "id": "pf10",
+      "question": "How do you optimize images?",
+      "answer": "By resizing, caching, and using proper formats.",
+      "tags": ["images"]
+    }
+  ]
+},
+{
+  "id": "testing",
+  "title": "Testing in Flutter",
+  "description": "Unit, widget, and integration testing",
+  "questions": [
+    {
+      "id": "ts1",
+      "question": "Why is testing important?",
+      "answer": "Testing ensures reliability, correctness, and maintainability.",
+      "tags": ["testing"]
+    },
+    {
+      "id": "ts2",
+      "question": "What are unit tests?",
+      "answer": "Tests that verify individual functions or classes.",
+      "tags": ["unit-test"]
+    },
+    {
+      "id": "ts3",
+      "question": "What are widget tests?",
+      "answer": "Tests that verify UI behavior in isolation.",
+      "tags": ["widget-test"]
+    },
+    {
+      "id": "ts4",
+      "question": "What are integration tests?",
+      "answer": "Tests that verify complete app flows.",
+      "tags": ["integration-test"]
+    },
+    {
+      "id": "ts5",
+      "question": "What is testWidgets?",
+      "answer": "A function used to write widget tests in Flutter.",
+      "tags": ["testwidgets"]
+    },
+    {
+      "id": "ts6",
+      "question": "What is mockito?",
+      "answer": "A mocking framework for unit tests.",
+      "tags": ["mockito"]
+    },
+    {
+      "id": "ts7",
+      "question": "What is bloc_test?",
+      "answer": "A package for testing BLoC state transitions.",
+      "tags": ["bloc-test"]
+    },
+    {
+      "id": "ts8",
+      "question": "What is golden testing?",
+      "answer": "Testing UI appearance using image comparison.",
+      "tags": ["golden-test"]
+    },
+    {
+      "id": "ts9",
+      "question": "What is code coverage?",
+      "answer": "Measures how much code is exercised by tests.",
+      "tags": ["coverage"]
+    },
+    {
+      "id": "ts10",
+      "question": "What is CI testing?",
+      "answer": "Running automated tests in continuous integration pipelines.",
+      "tags": ["ci"]
+    }
+  ]
+},
+{
+  "id": "platform_integration",
+  "title": "Platform Integration & Deployment",
+  "description": "Native integration and app deployment",
+  "questions": [
+    {
+      "id": "pd1",
+      "question": "What are platform channels?",
+      "answer": "They allow Flutter to communicate with native Android and iOS code.",
+      "tags": ["platform-channel"]
+    },
+    {
+      "id": "pd2",
+      "question": "What is MethodChannel?",
+      "answer": "MethodChannel is used to invoke native methods from Flutter.",
+      "tags": ["methodchannel"]
+    },
+    {
+      "id": "pd3",
+      "question": "What is EventChannel?",
+      "answer": "EventChannel streams data from native to Flutter.",
+      "tags": ["eventchannel"]
+    },
+    {
+      "id": "pd4",
+      "question": "What is BasicMessageChannel?",
+      "answer": "Used for simple message passing between Flutter and native.",
+      "tags": ["basicmessage"]
+    },
+    {
+      "id": "pd5",
+      "question": "How do you build APK?",
+      "answer": "Using flutter build apk.",
+      "tags": ["apk"]
+    },
+    {
+      "id": "pd6",
+      "question": "How do you build iOS app?",
+      "answer": "Using flutter build ios.",
+      "tags": ["ios"]
+    },
+    {
+      "id": "pd7",
+      "question": "What is flavor in Flutter?",
+      "answer": "Flavors allow multiple app configurations like dev and prod.",
+      "tags": ["flavors"]
+    },
+    {
+      "id": "pd8",
+      "question": "What is app signing?",
+      "answer": "Signing verifies the app publisher identity.",
+      "tags": ["signing"]
+    },
+    {
+      "id": "pd9",
+      "question": "What is Play Store release?",
+      "answer": "Publishing the app to Google Play Store.",
+      "tags": ["playstore"]
+    },
+    {
+      "id": "pd10",
+      "question": "What is App Store submission?",
+      "answer": "Publishing the app to Apple App Store.",
+      "tags": ["appstore"]
+    }
+  ]
+}
+
+
+
+
+
+
+
+   
+  ]
+}

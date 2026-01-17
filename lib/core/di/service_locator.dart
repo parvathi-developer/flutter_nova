@@ -12,6 +12,18 @@ import 'package:flutter_nova/features/auth/domain/usecases/login_usecases.dart';
 import 'package:flutter_nova/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:flutter_nova/features/auth/domain/usecases/register_usecase.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_bloc.dart';
+import 'package:flutter_nova/features/questions/data/datasources/question_local_datasources.dart';
+import 'package:flutter_nova/features/questions/data/datasources/question_local_datasources_impl.dart';
+import 'package:flutter_nova/features/questions/data/repositories/question_repository_impl.dart';
+import 'package:flutter_nova/features/questions/domain/repositories/question_repository.dart';
+import 'package:flutter_nova/features/questions/domain/usecases/get_question_by_topic.dart';
+import 'package:flutter_nova/features/questions/presentations/bloc/question_bloc.dart';
+import 'package:flutter_nova/features/topics/data/datasources/topic_local_datasources.dart';
+import 'package:flutter_nova/features/topics/data/datasources/topic_repository_impl.dart';
+import 'package:flutter_nova/features/topics/data/datasources/topics_local_datasources_impl.dart';
+import 'package:flutter_nova/features/topics/domain/repositories/topic_repository.dart';
+import 'package:flutter_nova/features/topics/domain/usecases/get_topic_usecase.dart';
+import 'package:flutter_nova/features/topics/presentations/bloc/topics_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 final s1 = GetIt.instance;
@@ -52,4 +64,31 @@ Future<void> initCoreDepenencies() async {
       registerUseCase: s1(),
     ),
   );
+
+  // Topics
+  s1.registerLazySingleton<TopicLocalDatasources>(
+    () => TopicsLocalDatasourcesImpl(),
+  );
+
+  s1.registerLazySingleton<TopicRepository>(() => TopicRepositoryImpl(s1()));
+
+  s1.registerLazySingleton(() => GetTopicUsecase(s1()));
+
+  s1.registerFactory(() => TopicsBloc(getTopicUsecase: s1()));
+
+  //Questions
+  // Questions
+  s1.registerLazySingleton<QuestionsLocalDataSource>(
+    () => QuestionsLocalDataSourceImpl(),
+  );
+
+  s1.registerLazySingleton<QuestionsRepository>(
+    () => QuestionsRepositoryImpl(s1()),
+  );
+
+  s1.registerLazySingleton<GetQuestionsByTopicUseCase>(
+    () => GetQuestionsByTopicUseCase(s1()),
+  );
+
+  s1.registerFactory(() => QuestionsBloc(getQuestionsByTopicUseCase: s1()));
 }

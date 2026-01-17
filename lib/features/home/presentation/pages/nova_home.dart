@@ -4,6 +4,7 @@ import 'package:flutter_nova/core/bloc/theme_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_bloc.dart';
 import 'package:flutter_nova/features/auth/presentations/bloc/auth_event.dart';
+import 'package:flutter_nova/features/topics/presentations/pages/topics_page.dart';
 
 class NovaHome extends StatelessWidget {
   const NovaHome({super.key});
@@ -32,12 +33,7 @@ class NovaHome extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Text(
-          "Prepare Smarter ,not harder",
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-      ),
+      body: Column(children: const [Expanded(child: TopicsPage())]),
     );
   }
 }
