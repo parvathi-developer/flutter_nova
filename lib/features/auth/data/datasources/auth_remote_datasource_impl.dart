@@ -30,4 +30,21 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasources {
   Future<void> logout() async {
     await firebaseAuth.signOut();
   }
+
+  @override
+  Future<void> sendPasswordReset(String email) {
+    return firebaseAuth.sendPasswordResetEmail(email: email);
+  }
+
+  @override
+  Future<UserModel> signInAnonymously() async {
+    final result = await firebaseAuth.signInAnonymously();
+    return UserModel(id: result.user!.uid, email: 'Guest');
+  }
+
+  @override
+  Future<UserModel> signInWithGoogle() {
+    // TODO: implement signInWithGoogle
+    throw UnimplementedError();
+  }
 }

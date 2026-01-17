@@ -10,3 +10,12 @@ class AuthLoginRequested extends AuthEvent {
 class AuthLogoutRequested extends AuthEvent {}
 
 class AuthCheckRequested extends AuthEvent {}
+
+class AuthForgotPasswordRequested extends AuthEvent {
+  final String email;
+  AuthForgotPasswordRequested(this.email);
+}
+
+class AuthGoogleSignInRequested extends AuthEvent {}
+
+class AuthAnonymousSignInRequested extends AuthEvent {}

@@ -19,4 +19,19 @@ class AuthRepositoryImpl extends AuthRepository {
   Future<void> logout() {
     return remoteDatasource.logout();
   }
+
+  @override
+  Future<void> sendPasswordReset(String email) {
+    return remoteDatasource.sendPasswordReset(email);
+  }
+
+  @override
+  Future<UserEntity> signInAnonymously() {
+    return remoteDatasource.signInAnonymously();
+  }
+
+  @override
+  Future<UserEntity> signInWithGoogle() {
+    return remoteDatasource.signInWithGoogle();
+  }
 }
